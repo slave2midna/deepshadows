@@ -19,7 +19,7 @@
     "module/rangersofshadowdeep.js"
   ],
   "styles": [
-    "css/rangersofshadowdeep.css"
+    "styles/actors.css"
   ],
   "scripts": [],
   "packs": [],
