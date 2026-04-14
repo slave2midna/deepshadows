@@ -1,23 +1,48 @@
 {
-    "name": "rangersofshadowdeep",
-    "title": "rangersofshadowdeep",
-    "description": "The Rangers of shadow deep system for FoundryVTT!",
-    "version": "0.1.7",
-    "minimumCoreVersion": "0.7.9",
-    "compatibleCoreVersion": "0.7.9",
-    "templateVersion": 2,
-    "author": "capitaine maurped",
-    "esmodules": ["module/rangersofshadowdeep.js"],
-    "styles": ["css/rangersofshadowdeep.css"],
-    "scripts": [],
-    "packs": [],
-    "languages": [],
-    "gridDistance": 1.5,
-    "gridUnits": "m",
-    "primaryTokenAttribute": "",
-    "secondaryTokenAttribute": "",
-    "url": "",
-    "manifest": "",
-    "download": "",
-    "license": "LICENSE.txt"
-  }
+  "id": "deepshadow",
+  "title": "Rangers of Shadow Deep",
+  "description": "An unofficial Rangers of Shadow Deep system for Foundry Virtual Tabletop.",
+  "version": "2.0.0",
+  "compatibility": {
+    "minimum": "13",
+    "verified": "13"
+  },
+  "authors": [
+    {
+      "name": "capitaine maurped"
+    },
+    {
+      "name": "Noamancy"
+    }
+  ],
+  "esmodules": [
+    "module/rangersofshadowdeep.js"
+  ],
+  "styles": [
+    "css/rangersofshadowdeep.css"
+  ],
+  "scripts": [],
+  "packs": [],
+  "languages": [],
+  "documentTypes": {
+    "Actor": {
+      "ranger": {},
+      "companion": {},
+      "monster": {}
+    },
+    "Item": {
+      "weapon": {},
+      "armor": {},
+      "spell": {},
+      "heroic": {},
+      "skill": {},
+      "item": {},
+      "trait": {}
+    }
+  },
+  "grid": {
+    "distance": 1.5,
+    "units": "m"
+  },
+  "license": "LICENSE.txt"
+}
