@@ -1,80 +1,25 @@
-import DeepShadowActorSheet from "./actor-sheet.mjs";
-
-const ATTRIBUTE_ORDER = [
-  "move",
-  "fight",
-  "shoot",
-  "armor",
-  "will",
-  "health"
-];
-
-const SKILL_ORDER = [
-  "acrobatics",
-  "ancientLore",
-  "armory",
-  "climb",
-  "leadership",
-  "navigation",
-  "perception",
-  "pickLock",
-  "readRunes",
-  "stealth",
-  "strength",
-  "survival",
-  "swim",
-  "track",
-  "traps"
-];
-
-export default class DeepShadowMonsterSheet extends DeepShadowActorSheet {
-  static get defaultOptions() {
-    return foundry.utils.mergeObject(super.defaultOptions, {
-      classes: [...super.defaultOptions.classes, "monster"],
-      width: 780,
-      height: 760
-    });
-  }
-
-  get template() {
-    return "systems/deepshadow/templates/actors/monster-sheet.hbs";
-  }
+export class MonsterSheet extends foundry.applications.sheets.ActorSheetV2 {
+  static DEFAULT_OPTIONS = foundry.utils.mergeObject(super.DEFAULT_OPTIONS, {
+    classes: ["deepshadow", "sheet", "actor", "monster-sheet"],
+    position: {
+      width: 780
+    }
+  }, { inplace: false });
 
   get title() {
-    return `${this.actor.name} — Monster`;
+    return this.actor?.name || "Monster";
   }
 
-  async getData(options = {}) {
-    const context = await super.getData(options);
-    const system = this.actor.system;
+  async _prepareContext(options) {
+    const context = await super._prepareContext(options);
 
-    context.attributes = ATTRIBUTE_ORDER.map((key) => ({
-      key,
-      ...system.attributes[key]
-    }));
-
-    context.skillsList = SKILL_ORDER.map((key) => ({
-      key,
-      ...system.skills[key]
-    }));
-
-    context.profile = system.profile;
-    context.rewards = system.rewards;
-    context.conditions = system.conditions;
-    context.note = system.notes;
-
-    context.hasAnySkills = context.skillsList.some((skill) => Number(skill.value ?? 0) !== 0);
-    context.hasInventory = context.inventoryItems.length > 0;
-    context.hasFeatures = context.featureItems.length > 0;
-    context.hasNotes = Boolean(system.notes?.trim());
-
-    context.tags = [
-      system.profile.animal ? "Animal" : null,
-      system.profile.undead ? "Undead" : null,
-      system.profile.large ? "Large" : null,
-      system.profile.flying ? "Flying" : null
-    ].filter(Boolean);
+    context.actor = this.actor;
+    context.levelLabel = "XP";
 
     return context;
+  }
+
+  async _renderHTML(context, options) {
+    return renderTemplate("templates/monster-sheet.hbs", context);
   }
 }
