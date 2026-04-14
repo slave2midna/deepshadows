@@ -1,60 +1,25 @@
-export class RangerData extends foundry.abstract.TypeDataModel {
-  static defineSchema() {
-    const fields = foundry.data.fields;
+export class RangerSheet extends foundry.applications.sheets.ActorSheetV2 {
+  static DEFAULT_OPTIONS = foundry.utils.mergeObject(super.DEFAULT_OPTIONS, {
+    classes: ["deepshadow", "sheet", "actor", "ranger-sheet"],
+    position: {
+      width: 780
+    }
+  }, { inplace: false });
 
-    return {
-      details: new fields.SchemaField({
-        level: new fields.NumberField({
-          required: true,
-          integer: true,
-          min: 0,
-          initial: 0
-        })
-      }),
+  get title() {
+    return this.actor?.name || "Ranger";
+  }
 
-      stats: new fields.SchemaField({
-        move: new fields.NumberField({
-          required: true,
-          integer: true,
-          min: 0,
-          initial: 6
-        }),
-        fight: new fields.NumberField({
-          required: true,
-          integer: true,
-          initial: 2
-        }),
-        shoot: new fields.NumberField({
-          required: true,
-          integer: true,
-          initial: 1
-        }),
-        armour: new fields.NumberField({
-          required: true,
-          integer: true,
-          min: 0,
-          initial: 10
-        }),
-        will: new fields.NumberField({
-          required: true,
-          integer: true,
-          initial: 4
-        }),
-        health: new fields.SchemaField({
-          max: new fields.NumberField({
-            required: true,
-            integer: true,
-            min: 0,
-            initial: 18
-          }),
-          current: new fields.NumberField({
-            required: true,
-            integer: true,
-            min: 0,
-            initial: 18
-          })
-        })
-      })
-    };
+  async _prepareContext(options) {
+    const context = await super._prepareContext(options);
+
+    context.actor = this.actor;
+    context.levelLabel = "LV";
+
+    return context;
+  }
+
+  async _renderHTML(context, options) {
+    return renderTemplate("templates/ranger-sheet.hbs", context);
   }
 }
