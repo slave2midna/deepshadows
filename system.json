@@ -2,7 +2,7 @@
   "id": "deepshadow",
   "title": "Rangers of Shadow Deep",
   "description": "An unofficial Rangers of Shadow Deep system for Foundry Virtual Tabletop.",
-  "version": "2.0.0",
+  "version": "1.0.0",
   "compatibility": {
     "minimum": "13",
     "verified": "13"
@@ -16,33 +16,16 @@
     }
   ],
   "esmodules": [
-    "module/rangersofshadowdeep.js"
+    "deepshadow.mjs"
   ],
   "styles": [
     "styles/actors.css"
   ],
-  "scripts": [],
-  "packs": [],
-  "languages": [],
   "documentTypes": {
     "Actor": {
       "ranger": {},
       "companion": {},
       "monster": {}
-    },
-    "Item": {
-      "weapon": {},
-      "armor": {},
-      "spell": {},
-      "heroic": {},
-      "skill": {},
-      "item": {},
-      "trait": {}
     }
-  },
-  "grid": {
-    "distance": 1.5,
-    "units": "m"
-  },
-  "license": "LICENSE.txt"
+  }
 }
