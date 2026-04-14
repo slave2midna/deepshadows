@@ -1,554 +1,166 @@
-/* ---------------------------------------- */
-/* Deep Shadow - Shared Actor Sheet Styles  */
-/* ---------------------------------------- */
-
-.deepshadow.sheet.actor,
-.deepshadow-sheet {
-  --ds-bg: rgba(245, 241, 230, 0.96);
-  --ds-panel: rgba(255, 252, 244, 0.92);
-  --ds-border: #8a7d68;
-  --ds-border-strong: #5e5140;
-  --ds-text: #231f1a;
-  --ds-text-muted: #5f5549;
-  --ds-accent: #4c6a5d;
-  --ds-accent-2: #6e3e2e;
-  --ds-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
-  --ds-radius: 10px;
-  --ds-gap: 12px;
-  --ds-gap-lg: 16px;
-  --ds-input-bg: rgba(255, 255, 255, 0.85);
+.deepshadow.sheet.actor .window-content {
+  padding: 0.75rem;
 }
 
-.deepshadow.sheet.actor form,
-.deepshadow-sheet {
-  color: var(--ds-text);
-}
-
-.deepshadow-sheet {
-  display: flex;
-  flex-direction: column;
-  gap: var(--ds-gap);
-  padding: 12px;
-  background: var(--ds-bg);
-}
-
-.deepshadow-sheet *,
-.deepshadow-sheet *::before,
-.deepshadow-sheet *::after {
-  box-sizing: border-box;
-}
-
-/* ---------------------------------------- */
-/* Header                                   */
-/* ---------------------------------------- */
-
-.deepshadow-sheet .sheet-header {
-  display: grid;
-  grid-template-columns: 128px 1fr;
-  gap: var(--ds-gap-lg);
-  align-items: start;
-  padding: 12px;
-  background: var(--ds-panel);
-  border: 1px solid var(--ds-border);
-  border-radius: var(--ds-radius);
-  box-shadow: var(--ds-shadow);
-}
-
-.deepshadow-sheet .profile-img {
-  display: block;
-  width: 128px;
-  height: 128px;
-  object-fit: cover;
-  border-radius: 12px;
-  border: 2px solid var(--ds-border-strong);
-  background: #ddd6c8;
-}
-
-.deepshadow-sheet .header-fields {
-  display: flex;
-  flex-direction: column;
-  gap: var(--ds-gap);
-  min-width: 0;
-}
-
-.deepshadow-sheet .charname {
-  margin: 0;
-}
-
-.deepshadow-sheet .charname input {
-  height: 44px;
-  font-size: 28px;
-  font-weight: 700;
-  padding: 8px 12px;
-}
-
-/* ---------------------------------------- */
-/* Meta grids                               */
-/* ---------------------------------------- */
-
-.deepshadow-sheet .ranger-meta-grid,
-.deepshadow-sheet .companion-meta-grid,
-.deepshadow-sheet .monster-meta-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: var(--ds-gap);
-}
-
-.deepshadow-sheet .meta-field {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  min-width: 0;
-}
-
-.deepshadow-sheet .meta-field.small {
-  max-width: 160px;
-}
-
-.deepshadow-sheet .meta-field span,
-.deepshadow-sheet .checkbox-field span {
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--ds-text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-}
-
-/* ---------------------------------------- */
-/* Inputs                                   */
-/* ---------------------------------------- */
-
-.deepshadow-sheet input[type="text"],
-.deepshadow-sheet input[type="number"],
-.deepshadow-sheet textarea,
-.deepshadow-sheet select {
+.ds-actor-sheet {
   width: 100%;
-  border: 1px solid var(--ds-border);
-  border-radius: 8px;
-  background: var(--ds-input-bg);
-  color: var(--ds-text);
-  padding: 6px 8px;
-  min-width: 0;
 }
 
-.deepshadow-sheet input[type="text"]:focus,
-.deepshadow-sheet input[type="number"]:focus,
-.deepshadow-sheet textarea:focus,
-.deepshadow-sheet select:focus {
-  outline: 2px solid rgba(76, 106, 93, 0.22);
-  outline-offset: 0;
-  border-color: var(--ds-accent);
-  box-shadow: none;
+.ds-actor-header {
+  width: 100%;
 }
 
-.deepshadow-sheet textarea {
-  min-height: 220px;
-  resize: vertical;
-  line-height: 1.4;
-}
-
-/* Important: keep checkbox styling light to avoid Foundry v13 control reflow */
-.deepshadow-sheet .condition-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px 14px;
-  align-items: center;
-}
-
-.deepshadow-sheet .checkbox-field {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  min-width: 0;
-}
-
-.deepshadow-sheet .checkbox-field input[type="checkbox"] {
-  margin: 0;
-}
-
-/* ---------------------------------------- */
-/* Tabs                                     */
-/* ---------------------------------------- */
-
-.deepshadow-sheet .sheet-tabs {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  padding: 8px;
-  background: var(--ds-panel);
-  border: 1px solid var(--ds-border);
-  border-radius: var(--ds-radius);
-  box-shadow: var(--ds-shadow);
-}
-
-.deepshadow-sheet .sheet-tabs .item {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 96px;
-  padding: 8px 12px;
-  border: 1px solid transparent;
-  border-radius: 999px;
-  color: var(--ds-text-muted);
-  font-weight: 700;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.deepshadow-sheet .sheet-tabs .item.active {
-  color: #fff;
-  background: var(--ds-accent);
-  border-color: var(--ds-accent);
-}
-
-.deepshadow-sheet .sheet-body {
-  min-height: 0;
-}
-
-.deepshadow-sheet .tab {
-  display: flex;
-  flex-direction: column;
-  gap: var(--ds-gap);
-}
-
-/* ---------------------------------------- */
-/* Panels                                   */
-/* ---------------------------------------- */
-
-.deepshadow-sheet .sheet-panel {
-  padding: 12px;
-  background: var(--ds-panel);
-  border: 1px solid var(--ds-border);
-  border-radius: var(--ds-radius);
-  box-shadow: var(--ds-shadow);
-}
-
-.deepshadow-sheet .sheet-panel h2 {
-  margin: 0 0 10px 0;
-  padding-bottom: 6px;
-  border-bottom: 1px solid rgba(94, 81, 64, 0.22);
-  font-size: 18px;
-}
-
-.deepshadow-sheet .sheet-panel h3,
-.deepshadow-sheet .sheet-panel h4 {
-  margin: 0;
-}
-
-/* ---------------------------------------- */
-/* Attribute cards                          */
-/* ---------------------------------------- */
-
-.deepshadow-sheet .attribute-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: var(--ds-gap);
-}
-
-.deepshadow-sheet .attribute-card {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 10px;
-  background: rgba(255, 255, 255, 0.55);
-  border: 1px solid rgba(138, 125, 104, 0.6);
-  border-radius: 10px;
-}
-
-.deepshadow-sheet .attribute-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-}
-
-.deepshadow-sheet .attribute-header h3 {
-  font-size: 16px;
-}
-
-.deepshadow-sheet .attribute-values {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
-}
-
-.deepshadow-sheet .attribute-values label {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.deepshadow-sheet .attribute-values span {
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--ds-text-muted);
-  text-transform: uppercase;
-}
-
-/* ---------------------------------------- */
-/* Preview cards / progression blocks       */
-/* ---------------------------------------- */
-
-.deepshadow-sheet .preview-grid,
-.deepshadow-sheet .progression-summary {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: var(--ds-gap);
-}
-
-.deepshadow-sheet .preview-card,
-.deepshadow-sheet .progression-card {
-  padding: 10px;
-  background: rgba(255, 255, 255, 0.55);
-  border: 1px solid rgba(138, 125, 104, 0.6);
-  border-radius: 10px;
-}
-
-/* ---------------------------------------- */
-/* Tables                                   */
-/* ---------------------------------------- */
-
-.deepshadow-sheet table {
+.ds-actor-header-table {
   width: 100%;
   border-collapse: collapse;
+  table-layout: fixed;
+  background: var(--color-bg-option);
+  border: 1px solid var(--color-border-dark-3);
 }
 
-.deepshadow-sheet th,
-.deepshadow-sheet td {
-  padding: 8px;
-  border-bottom: 1px solid rgba(138, 125, 104, 0.35);
-  text-align: left;
+.ds-actor-header-table td {
+  border: 1px solid var(--color-border-dark-3);
+  padding: 0;
   vertical-align: middle;
 }
 
-.deepshadow-sheet th {
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--ds-text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
+.ds-header-image-cell {
+  width: 150px;
+  min-width: 150px;
+  background: var(--color-bg);
 }
 
-.deepshadow-sheet .skills-table td input,
-.deepshadow-sheet .preview-table td,
-.deepshadow-sheet .preview-table th {
-  text-align: center;
-}
-
-.deepshadow-sheet .skills-table td:first-child,
-.deepshadow-sheet .preview-table td:first-child {
-  text-align: left;
-}
-
-.deepshadow-sheet .skills-table .rollable {
+.ds-header-image-box {
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: stretch;
   justify-content: center;
-}
-
-/* ---------------------------------------- */
-/* Section headers                          */
-/* ---------------------------------------- */
-
-.deepshadow-sheet .section-header {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  margin-bottom: 10px;
-}
-
-.deepshadow-sheet .section-controls {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-/* ---------------------------------------- */
-/* Links / buttons                          */
-/* ---------------------------------------- */
-
-.deepshadow-sheet a {
-  color: var(--ds-accent-2);
-}
-
-.deepshadow-sheet .rollable,
-.deepshadow-sheet .item-create,
-.deepshadow-sheet .item-edit,
-.deepshadow-sheet .item-delete,
-.deepshadow-sheet .section-controls a {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.deepshadow-sheet .item-create,
-.deepshadow-sheet .section-controls a {
-  padding: 6px 10px;
-  border: 1px solid var(--ds-border);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.72);
-  color: var(--ds-text);
-  font-size: 12px;
-  font-weight: 700;
-}
-
-.deepshadow-sheet .item-create:hover,
-.deepshadow-sheet .section-controls a:hover,
-.deepshadow-sheet .item-edit:hover,
-.deepshadow-sheet .item-delete:hover,
-.deepshadow-sheet .rollable:hover {
-  color: var(--ds-accent);
-}
-
-/* ---------------------------------------- */
-/* Item lists                               */
-/* ---------------------------------------- */
-
-.deepshadow-sheet .item-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.deepshadow-sheet .item-list .item {
-  display: grid;
-  grid-template-columns: minmax(0, 240px) 1fr auto;
-  gap: 12px;
-  align-items: center;
-  padding: 10px;
-  background: rgba(255, 255, 255, 0.55);
-  border: 1px solid rgba(138, 125, 104, 0.6);
-  border-radius: 10px;
-}
-
-.deepshadow-sheet .item-list .item.empty,
-.deepshadow-sheet .empty-state {
-  padding: 12px;
-  color: var(--ds-text-muted);
-  font-style: italic;
-  background: rgba(255, 255, 255, 0.4);
-  border: 1px dashed rgba(138, 125, 104, 0.6);
-  border-radius: 10px;
-}
-
-.deepshadow-sheet .item-name {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  min-width: 0;
-}
-
-.deepshadow-sheet .item-name img {
-  flex: 0 0 32px;
-  width: 32px;
-  height: 32px;
-  object-fit: cover;
-  border-radius: 6px;
-  border: 1px solid rgba(94, 81, 64, 0.35);
-}
-
-.deepshadow-sheet .item-text {
-  min-width: 0;
-}
-
-.deepshadow-sheet .item-text h4 {
   overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  background: var(--color-bg);
 }
 
-.deepshadow-sheet .item-type {
-  font-size: 12px;
-  color: var(--ds-text-muted);
-  text-transform: capitalize;
+.ds-header-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
-.deepshadow-sheet .item-summary {
-  min-width: 0;
-  color: var(--ds-text-muted);
-  line-height: 1.35;
+/* Top row */
+.ds-header-name-cell {
+  background: var(--color-bg-option);
 }
 
-.deepshadow-sheet .item-controls {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  justify-content: flex-end;
-}
-
-/* ---------------------------------------- */
-/* Lists / tags                             */
-/* ---------------------------------------- */
-
-.deepshadow-sheet .simple-list {
+.ds-header-name-input,
+.ds-header-level-input,
+.ds-stat-input {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
   margin: 0;
-  padding-left: 18px;
 }
 
-.deepshadow-sheet .tag-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+.ds-header-name-input {
+  min-height: 40px;
+  padding: 0.5rem 0.75rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
-.deepshadow-sheet .monster-tag {
-  display: inline-flex;
-  align-items: center;
-  padding: 4px 10px;
-  border-radius: 999px;
-  background: rgba(76, 106, 93, 0.14);
-  border: 1px solid rgba(76, 106, 93, 0.28);
-  color: var(--ds-accent);
-  font-size: 12px;
+.ds-header-level-label-cell,
+.ds-header-level-value-cell {
+  width: 42px;
+  min-width: 42px;
+  text-align: center;
+  background: var(--color-bg-option);
+}
+
+.ds-header-level-label-cell {
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.ds-header-level-input {
+  min-height: 40px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 0;
+}
+
+/* Stat rows */
+.ds-stat-label-cell {
+  min-height: 34px;
+  padding: 0.35rem 0.25rem;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.95rem;
+  white-space: nowrap;
+  background: var(--color-bg-option);
+}
+
+.ds-stat-value-cell {
+  background: var(--color-bg);
+}
+
+.ds-stat-input {
+  min-height: 42px;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.25rem;
+}
+
+.ds-stat-input-current {
   font-weight: 700;
 }
 
-/* ---------------------------------------- */
-/* Type-specific accents                    */
-/* ---------------------------------------- */
-
-.deepshadow-sheet.ranger-sheet .sheet-tabs .item.active,
-.deepshadow-sheet.ranger-sheet .monster-tag {
-  background: #4c6a5d;
+/* Remove Foundry default focus glow from the table fields
+   so the grid stays crisp. */
+.ds-header-name-input:focus,
+.ds-header-level-input:focus,
+.ds-stat-input:focus {
+  outline: 1px solid var(--color-border-highlight);
+  box-shadow: none;
 }
 
-.deepshadow-sheet.companion-sheet .sheet-tabs .item.active,
-.deepshadow-sheet.companion-sheet .monster-tag {
-  background: #47607a;
-  border-color: #47607a;
+/* Keep number inputs visually tidy */
+.ds-header-level-input::-webkit-outer-spin-button,
+.ds-header-level-input::-webkit-inner-spin-button,
+.ds-stat-input::-webkit-outer-spin-button,
+.ds-stat-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
-.deepshadow-sheet.monster-sheet .sheet-tabs .item.active,
-.deepshadow-sheet.monster-sheet .monster-tag {
-  background: #6e3e2e;
-  border-color: #6e3e2e;
+.ds-header-level-input[type="number"],
+.ds-stat-input[type="number"] {
+  -moz-appearance: textfield;
 }
 
-/* ---------------------------------------- */
-/* Responsive                               */
-/* ---------------------------------------- */
-
-@media (max-width: 900px) {
-  .deepshadow-sheet .sheet-header {
-    grid-template-columns: 1fr;
+/* Small safety adjustment if sheet width gets tighter later */
+@media (max-width: 720px) {
+  .ds-header-image-cell,
+  .ds-header-image-box {
+    width: 120px;
+    min-width: 120px;
+    height: 120px;
   }
 
-  .deepshadow-sheet .profile-img {
-    width: 96px;
-    height: 96px;
+  .ds-header-name-input {
+    font-size: 1rem;
   }
 
-  .deepshadow-sheet .item-list .item {
-    grid-template-columns: 1fr;
-    align-items: start;
+  .ds-stat-label-cell {
+    font-size: 0.85rem;
   }
 
-  .deepshadow-sheet .item-controls {
-    justify-content: flex-start;
+  .ds-stat-input {
+    font-size: 0.95rem;
   }
 }
