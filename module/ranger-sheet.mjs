@@ -27,6 +27,26 @@ export class RangerSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const context = await super._prepareContext(options);
     context.actor = this.actor;
     context.levelLabel = "LV";
+    context.editableImage = this.isEditable;
     return context;
+  }
+
+  async _onClickAction(event, target) {
+    if (target.dataset.action === "editPortrait") {
+      event.preventDefault();
+      if (!this.isEditable) return;
+
+      new FilePicker({
+        type: "image",
+        current: this.actor.img,
+        callback: async (path) => {
+          await this.actor.update({ img: path });
+        }
+      }).browse();
+
+      return;
+    }
+
+    return super._onClickAction(event, target);
   }
 }
