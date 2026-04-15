@@ -163,9 +163,9 @@
   width: 18px;
   min-width: 18px;
   height: 34px;
-  border: 1px solid var(--color-border-dark-3);
+  border: 1px solid transparent;
   border-radius: 2px;
-  background: var(--color-bg-option);
+  background: transparent;
   color: inherit;
   box-shadow: none;
   margin: 0;
@@ -186,7 +186,7 @@
 .ds-stat-step-btn:focus {
   opacity: 1;
   border-color: var(--color-border-highlight);
-  background: color-mix(in srgb, var(--color-bg-option) 88%, white 12%);
+  background: var(--color-bg-option);
   outline: none;
 }
 
