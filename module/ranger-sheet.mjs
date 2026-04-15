@@ -26,19 +26,12 @@ export class RangerSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   async _prepareContext(options) {
   const context = await super._prepareContext(options);
   context.actor = this.actor;
-  context.levelLabel = "LV";
-  context.editableImage = this.isEditable;
 
-  context.levelName = "system.details.level";
-  context.levelValue = this.actor.system.details.level;
+  context.extrafield1Name = "system.details.level";
+  context.extrafield1Value = this.actor.system.details.level;
 
-  context.extraField = {
-    label: "XP",
-    name: "system.details.experience",
-    value: this.actor.system.details.experience ?? 0
-  };
-
-  context.nameColspan = 4;
+  context.extrafield2Name = "system.details.experience";
+  context.extrafield2Value = this.actor.system.details.experience ?? 0;
 
   return context;
 }
