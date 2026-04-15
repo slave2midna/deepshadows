@@ -1,4 +1,4 @@
-import { RangerData } from "./data/ranger-data.mjs";
+import DeepShadowRangerData from "./data/ranger-data.mjs";
 import { CompanionData } from "./data/companion-data.mjs";
 import { MonsterData } from "./data/monster-data.mjs";
 
@@ -8,12 +8,10 @@ import { MonsterSheet } from "./module/monster-sheet.mjs";
 
 /**
  * Preload shared Handlebars partials used by actor sheets.
- * The shared header partial will be included in the individual
- * ranger / companion / monster sheet templates.
  */
 async function preloadDeepShadowTemplates() {
   return foundry.applications.handlebars.loadTemplates({
-    actorHeader: "templates/shared/actor-header.hbs"
+    actorHeader: "systems/deepshadow/templates/shared/actor-header.hbs"
   });
 }
 
@@ -24,7 +22,7 @@ Hooks.once("init", async function () {
    * Register Actor system data models.
    * These become actor.system for each matching Actor type.
    */
-  CONFIG.Actor.dataModels.ranger = RangerData;
+  CONFIG.Actor.dataModels.ranger = DeepShadowRangerData;
   CONFIG.Actor.dataModels.companion = CompanionData;
   CONFIG.Actor.dataModels.monster = MonsterData;
 
