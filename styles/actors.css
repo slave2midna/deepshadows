@@ -47,6 +47,10 @@
   display: block;
 }
 
+.ds-header-image.is-editable {
+  cursor: pointer;
+}
+
 /* Top row */
 .ds-header-name-cell {
   background: var(--color-bg-option);
@@ -74,22 +78,22 @@
 
 .ds-header-level-label-cell,
 .ds-header-level-value-cell {
-  width: 42px;
-  min-width: 42px;
+  width: 36px;
+  min-width: 36px;
   text-align: center;
   background: var(--color-bg-option);
 }
 
 .ds-header-level-label-cell {
   font-weight: 700;
-  font-size: 0.95rem;
+  font-size: 0.85rem;
 }
 
 .ds-header-level-input {
   min-height: 40px;
   text-align: center;
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 0.9rem;
   padding: 0;
 }
 
@@ -143,10 +147,6 @@
   -moz-appearance: textfield;
 }
 
-.ds-header-image.is-editable {
-  cursor: pointer;
-}
-
 /* Small safety adjustment if sheet width gets tighter later */
 @media (max-width: 720px) {
   .ds-header-image-cell,
@@ -158,6 +158,20 @@
 
   .ds-header-name-input {
     font-size: 1rem;
+  }
+
+  .ds-header-level-label-cell,
+  .ds-header-level-value-cell {
+    width: 32px;
+    min-width: 32px;
+  }
+
+  .ds-header-level-label-cell {
+    font-size: 0.8rem;
+  }
+
+  .ds-header-level-input {
+    font-size: 0.85rem;
   }
 
   .ds-stat-label-cell {
