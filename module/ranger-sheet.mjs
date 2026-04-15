@@ -24,12 +24,24 @@ export class RangerSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   }
 
   async _prepareContext(options) {
-    const context = await super._prepareContext(options);
-    context.actor = this.actor;
-    context.levelLabel = "LV";
-    context.editableImage = this.isEditable;
-    return context;
-  }
+  const context = await super._prepareContext(options);
+  context.actor = this.actor;
+  context.levelLabel = "LV";
+  context.editableImage = this.isEditable;
+
+  context.levelName = "system.details.level";
+  context.levelValue = this.actor.system.details.level;
+
+  context.extraField = {
+    label: "XP",
+    name: "system.details.experience",
+    value: this.actor.system.details.experience ?? 0
+  };
+
+  context.nameColspan = 4;
+
+  return context;
+}
 
   async _onClickAction(event, target) {
     if (target.dataset.action === "editPortrait") {
