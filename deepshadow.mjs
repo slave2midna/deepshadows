@@ -18,18 +18,10 @@ async function preloadDeepShadowTemplates() {
 Hooks.once("init", async function () {
   console.log("DeepShadow | Initializing Rangers of Shadow Deep system");
 
-  /**
-   * Register Actor system data models.
-   * These become actor.system for each matching Actor type.
-   */
-  CONFIG.Actor.dataModels.ranger = DeepShadowRangerData;
+  CONFIG.Actor.dataModels.ranger = RangerData;
   CONFIG.Actor.dataModels.companion = CompanionData;
   CONFIG.Actor.dataModels.monster = MonsterData;
 
-  /**
-   * Register Actor sheets.
-   * Each Actor type gets its own sheet class and default sheet.
-   */
   foundry.documents.collections.Actors.registerSheet("deepshadow", RangerSheet, {
     types: ["ranger"],
     makeDefault: true,
@@ -48,9 +40,6 @@ Hooks.once("init", async function () {
     label: "Monster Sheet"
   });
 
-  /**
-   * Preload shared Handlebars partials.
-   */
   await preloadDeepShadowTemplates();
 });
 
