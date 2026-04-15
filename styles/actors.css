@@ -49,7 +49,7 @@
   flex-direction: column;
 }
 
-/* Top row is now independent from stat columns */
+/* Top row is independent from stat columns */
 .ds-header-top-row {
   display: flex;
   min-width: 0;
@@ -146,6 +146,65 @@
   background: var(--color-bg);
 }
 
+/* Stepper controls */
+.ds-stat-stepper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  width: 100%;
+  min-height: 34px;
+}
+
+.ds-stat-step-btn {
+  appearance: none;
+  -webkit-appearance: none;
+  flex: 0 0 18px;
+  width: 18px;
+  min-width: 18px;
+  height: 34px;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  background: transparent;
+  color: inherit;
+  box-shadow: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: auto;
+  transition: opacity 120ms ease, border-color 120ms ease, background-color 120ms ease;
+}
+
+.ds-stat-step-btn:hover,
+.ds-stat-step-btn:focus {
+  opacity: 1;
+  border-color: var(--color-border-highlight);
+  background: var(--color-bg-option);
+  outline: none;
+}
+
+.ds-stat-input {
+  min-height: 34px;
+  text-align: center;
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 0;
+}
+
+.ds-stat-stepper .ds-stat-input {
+  flex: 0 0 2.8em;
+  width: 2.8em;
+  min-width: 2.8em;
+  max-width: 2.8em;
+}
+
 .ds-stat-divider-spacer-cell {
   width: 16px;
   min-width: 16px;
@@ -172,19 +231,8 @@
   text-align: center;
 }
 
+.ds-stat-input-current,
 .ds-stat-current-value-cell .ds-stat-input-current {
-  font-weight: 700;
-}
-
-.ds-stat-input {
-  min-height: 42px;
-  text-align: center;
-  font-size: 1rem;
-  font-weight: 500;
-  padding: 0.25rem;
-}
-
-.ds-stat-input-current {
   font-weight: 700;
 }
 
@@ -247,7 +295,25 @@
   }
 
   .ds-stat-input {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
+  }
+
+  .ds-stat-step-btn {
+    flex-basis: 16px;
+    width: 16px;
+    min-width: 16px;
+    height: 30px;
+    font-size: 0.65rem;
+  }
+
+  .ds-stat-stepper .ds-stat-input {
+    flex-basis: 2.4em;
+    width: 2.4em;
+    min-width: 2.4em;
+    max-width: 2.4em;
+    min-height: 30px;
+    height: 30px;
+    font-size: 0.9rem;
   }
 
   .ds-stat-divider-spacer-cell,

@@ -71,77 +71,105 @@
 
         <tr>
           <td class="ds-stat-value-cell">
-            <input
-              class="ds-stat-input"
-              type="number"
-              name="system.stats.move"
-              value="{{actor.system.stats.move}}"
-              step="1"
-            />
+            <div class="ds-stat-stepper">
+              <button type="button" class="ds-stat-step-btn" data-action="decrementField">-</button>
+              <input
+                class="ds-stat-input"
+                type="number"
+                name="system.stats.move"
+                value="{{actor.system.stats.move}}"
+                step="1"
+              />
+              <button type="button" class="ds-stat-step-btn" data-action="incrementField">+</button>
+            </div>
           </td>
 
           <td class="ds-stat-value-cell">
-            <input
-              class="ds-stat-input"
-              type="number"
-              name="system.stats.fight"
-              value="{{actor.system.stats.fight}}"
-              step="1"
-            />
+            <div class="ds-stat-stepper">
+              <button type="button" class="ds-stat-step-btn" data-action="decrementField">-</button>
+              <input
+                class="ds-stat-input"
+                type="number"
+                name="system.stats.fight"
+                value="{{actor.system.stats.fight}}"
+                step="1"
+              />
+              <button type="button" class="ds-stat-step-btn" data-action="incrementField">+</button>
+            </div>
           </td>
 
           <td class="ds-stat-value-cell">
-            <input
-              class="ds-stat-input"
-              type="number"
-              name="system.stats.shoot"
-              value="{{actor.system.stats.shoot}}"
-              step="1"
-            />
+            <div class="ds-stat-stepper">
+              <button type="button" class="ds-stat-step-btn" data-action="decrementField">-</button>
+              <input
+                class="ds-stat-input"
+                type="number"
+                name="system.stats.shoot"
+                value="{{actor.system.stats.shoot}}"
+                step="1"
+              />
+              <button type="button" class="ds-stat-step-btn" data-action="incrementField">+</button>
+            </div>
           </td>
 
           <td class="ds-stat-value-cell">
-            <input
-              class="ds-stat-input"
-              type="number"
-              name="system.stats.armour"
-              value="{{actor.system.stats.armour}}"
-              step="1"
-            />
+            <div class="ds-stat-stepper">
+              <button type="button" class="ds-stat-step-btn" data-action="decrementField">-</button>
+              <input
+                class="ds-stat-input"
+                type="number"
+                name="system.stats.armour"
+                value="{{actor.system.stats.armour}}"
+                step="1"
+              />
+              <button type="button" class="ds-stat-step-btn" data-action="incrementField">+</button>
+            </div>
           </td>
 
           <td class="ds-stat-value-cell">
-            <input
-              class="ds-stat-input"
-              type="number"
-              name="system.stats.will"
-              value="{{actor.system.stats.will}}"
-              step="1"
-            />
+            <div class="ds-stat-stepper">
+              <button type="button" class="ds-stat-step-btn" data-action="decrementField">-</button>
+              <input
+                class="ds-stat-input"
+                type="number"
+                name="system.stats.will"
+                value="{{actor.system.stats.will}}"
+                step="1"
+              />
+              <button type="button" class="ds-stat-step-btn" data-action="incrementField">+</button>
+            </div>
           </td>
 
           <td class="ds-stat-value-cell">
-            <input
-              class="ds-stat-input"
-              type="number"
-              name="system.stats.health.max"
-              value="{{actor.system.stats.health.max}}"
-              min="0"
-              step="1"
-            />
+            <div class="ds-stat-stepper">
+              <button type="button" class="ds-stat-step-btn" data-action="decrementField">-</button>
+              <input
+                class="ds-stat-input"
+                type="number"
+                name="system.stats.health.max"
+                value="{{actor.system.stats.health.max}}"
+                min="0"
+                step="1"
+              />
+              <button type="button" class="ds-stat-step-btn" data-action="incrementField">+</button>
+            </div>
           </td>
 
           <td class="ds-stat-divider-cell">|</td>
 
           <td class="ds-stat-value-cell ds-stat-current-value-cell">
-            <input
-              class="ds-stat-input ds-stat-input-current"
-              type="number"
-              name="system.stats.health.current"
-              value="{{actor.system.stats.health.current}}"
-              min="0"
-              step="1"
-            />
+            <div class="ds-stat-stepper">
+              <button type="button" class="ds-stat-step-btn" data-action="decrementField">-</button>
+              <input
+                class="ds-stat-input ds-stat-input-current"
+                type="number"
+                name="system.stats.health.current"
+                value="{{actor.system.stats.health.current}}"
+                min="0"
+                step="1"
+              />
+              <button type="button" class="ds-stat-step-btn" data-action="incrementField">+</button>
+            </div>
           </td>
         </tr>
       </table>
