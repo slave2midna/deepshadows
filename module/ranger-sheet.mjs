@@ -24,7 +24,7 @@ export class RangerSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     return this.actor?.name || "Ranger";
   }
 
-  async _prepareContext(options) {
+    async _prepareContext(options) {
     const context = await super._prepareContext(options);
     context.actor = this.actor;
 
@@ -36,8 +36,6 @@ export class RangerSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 
     context.subfield1Value = this.actor.system.details.battlePoints ?? 30;
     context.subfield2Value = this.actor.system.details.recruitmentPoints ?? 120;
-    context.subfield3Name = "system.details.partySize";
-    context.subfield3Value = this.actor.system.details.partySize ?? "solo";
 
     return context;
   }
