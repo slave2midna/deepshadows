@@ -20,6 +20,6 @@ export class CompanionSheet extends foundry.applications.sheets.ActorSheetV2 {
   }
 
   async _renderHTML(context, options) {
-    return renderTemplate("templates/companion-sheet.hbs", context);
+    return renderTemplate("systems/deepshadow/templates/companion-sheet.hbs", context);
   }
 }
