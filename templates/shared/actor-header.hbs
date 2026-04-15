@@ -173,6 +173,22 @@
           </td>
         </tr>
       </table>
+
+      <div class="ds-header-sub-row">
+        {{#if subfield1Label}}
+          <div class="ds-header-sub-field">
+            <span class="ds-header-sub-label">{{subfield1Label}}</span>
+            <span class="ds-header-sub-value">{{subfield1Value}}</span>
+          </div>
+        {{/if}}
+
+        {{#if subfield2Label}}
+          <div class="ds-header-sub-field">
+            <span class="ds-header-sub-label">{{subfield2Label}}</span>
+            <span class="ds-header-sub-value">{{subfield2Value}}</span>
+          </div>
+        {{/if}}
+      </div>
     </div>
   </div>
 </section>
