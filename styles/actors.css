@@ -178,18 +178,13 @@
   line-height: 1;
   cursor: pointer;
   opacity: 0;
-  pointer-events: none;
-  transition: opacity 120ms ease, border-color 120ms ease, background-color 120ms ease;
-}
-
-.ds-stat-stepper:hover .ds-stat-step-btn,
-.ds-stat-stepper:focus-within .ds-stat-step-btn {
-  opacity: 1;
   pointer-events: auto;
+  transition: opacity 120ms ease, border-color 120ms ease, background-color 120ms ease;
 }
 
 .ds-stat-step-btn:hover,
 .ds-stat-step-btn:focus {
+  opacity: 1;
   border-color: var(--color-border-highlight);
   background: color-mix(in srgb, var(--color-bg-option) 88%, white 12%);
   outline: none;
