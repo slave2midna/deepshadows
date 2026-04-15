@@ -9,6 +9,12 @@ export class CompanionData extends foundry.abstract.TypeDataModel {
           integer: true,
           min: 0,
           initial: 0
+        }),
+        progressionPoints: new fields.NumberField({
+          required: true,
+          integer: true,
+          min: 0,
+          initial: 0
         })
       }),
 
