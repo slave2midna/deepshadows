@@ -188,6 +188,22 @@
             <span class="ds-header-sub-value">{{subfield2Value}}</span>
           </div>
         {{/if}}
+
+        {{#if subfield3Label}}
+          <div class="ds-header-sub-field ds-header-sub-field-select">
+            <label class="ds-header-sub-label" for="{{subfield3Name}}">{{subfield3Label}}</label>
+            <select
+              class="ds-header-sub-select"
+              name="{{subfield3Name}}"
+              id="{{subfield3Name}}"
+            >
+              <option value="solo" {{#if (eq subfield3Value "solo")}}selected{{/if}}>Solo</option>
+              <option value="2" {{#if (eq subfield3Value "2")}}selected{{/if}}>2</option>
+              <option value="3" {{#if (eq subfield3Value "3")}}selected{{/if}}>3</option>
+              <option value="4" {{#if (eq subfield3Value "4")}}selected{{/if}}>4</option>
+            </select>
+          </div>
+        {{/if}}
       </div>
     </div>
   </div>
