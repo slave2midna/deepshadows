@@ -263,12 +263,6 @@
   font-weight: 500;
 }
 
-.ds-header-sub-select {
-  min-width: 4.5rem;
-  height: 24px;
-  padding: 0 0.35rem;
-}
-
 /* Remove Foundry default focus glow from the table fields
    so the grid stays crisp. */
 .ds-header-name-input:focus,
