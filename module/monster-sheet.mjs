@@ -26,14 +26,9 @@ export class MonsterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   async _prepareContext(options) {
   const context = await super._prepareContext(options);
   context.actor = this.actor;
-  context.editableImage = this.isEditable;
 
-  context.levelLabel = "XP";
-  context.levelName = "system.details.level";
-  context.levelValue = this.actor.system.details.level;
-
-  context.extraField = null;
-  context.nameColspan = 6;
+  context.extrafield1Name = "system.details.level";
+  context.extrafield1Value = this.actor.system.details.level;
 
   return context;
 }
