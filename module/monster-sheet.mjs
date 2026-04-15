@@ -20,6 +20,6 @@ export class MonsterSheet extends foundry.applications.sheets.ActorSheetV2 {
   }
 
   async _renderHTML(context, options) {
-    return renderTemplate("templates/monster-sheet.hbs", context);
+    return renderTemplate("systems/deepshadow/templates/monster-sheet.hbs", context);
   }
 }
