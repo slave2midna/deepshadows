@@ -13,7 +13,7 @@
         </div>
       </td>
 
-      <td class="ds-header-name-cell" colspan="6">
+      <td class="ds-header-name-cell" colspan="{{nameColspan}}">
         <input
           class="ds-header-name-input"
           type="text"
@@ -31,12 +31,29 @@
         <input
           class="ds-header-level-input"
           type="number"
-          name="system.details.level"
-          value="{{actor.system.details.level}}"
+          name="{{levelName}}"
+          value="{{levelValue}}"
           min="0"
           step="1"
         />
       </td>
+
+      {{#if extraField}}
+        <td class="ds-header-level-label-cell">
+          {{extraField.label}}
+        </td>
+
+        <td class="ds-header-level-value-cell">
+          <input
+            class="ds-header-level-input"
+            type="number"
+            name="{{extraField.name}}"
+            value="{{extraField.value}}"
+            min="0"
+            step="1"
+          />
+        </td>
+      {{/if}}
     </tr>
 
     <tr>
@@ -51,75 +68,31 @@
 
     <tr>
       <td class="ds-stat-value-cell">
-        <input
-          class="ds-stat-input"
-          type="number"
-          name="system.stats.move"
-          value="{{actor.system.stats.move}}"
-          step="1"
-        />
+        <input class="ds-stat-input" type="number" name="system.stats.move" value="{{actor.system.stats.move}}" step="1" />
       </td>
 
       <td class="ds-stat-value-cell">
-        <input
-          class="ds-stat-input"
-          type="number"
-          name="system.stats.fight"
-          value="{{actor.system.stats.fight}}"
-          step="1"
-        />
+        <input class="ds-stat-input" type="number" name="system.stats.fight" value="{{actor.system.stats.fight}}" step="1" />
       </td>
 
       <td class="ds-stat-value-cell">
-        <input
-          class="ds-stat-input"
-          type="number"
-          name="system.stats.shoot"
-          value="{{actor.system.stats.shoot}}"
-          step="1"
-        />
+        <input class="ds-stat-input" type="number" name="system.stats.shoot" value="{{actor.system.stats.shoot}}" step="1" />
       </td>
 
       <td class="ds-stat-value-cell">
-        <input
-          class="ds-stat-input"
-          type="number"
-          name="system.stats.armour"
-          value="{{actor.system.stats.armour}}"
-          step="1"
-        />
+        <input class="ds-stat-input" type="number" name="system.stats.armour" value="{{actor.system.stats.armour}}" step="1" />
       </td>
 
       <td class="ds-stat-value-cell">
-        <input
-          class="ds-stat-input"
-          type="number"
-          name="system.stats.will"
-          value="{{actor.system.stats.will}}"
-          step="1"
-        />
+        <input class="ds-stat-input" type="number" name="system.stats.will" value="{{actor.system.stats.will}}" step="1" />
       </td>
 
       <td class="ds-stat-value-cell">
-        <input
-          class="ds-stat-input"
-          type="number"
-          name="system.stats.health.max"
-          value="{{actor.system.stats.health.max}}"
-          min="0"
-          step="1"
-        />
+        <input class="ds-stat-input" type="number" name="system.stats.health.max" value="{{actor.system.stats.health.max}}" min="0" step="1" />
       </td>
 
       <td class="ds-stat-value-cell" colspan="2">
-        <input
-          class="ds-stat-input ds-stat-input-current"
-          type="number"
-          name="system.stats.health.current"
-          value="{{actor.system.stats.health.current}}"
-          min="0"
-          step="1"
-        />
+        <input class="ds-stat-input ds-stat-input-current" type="number" name="system.stats.health.current" value="{{actor.system.stats.health.current}}" min="0" step="1" />
       </td>
     </tr>
   </table>
