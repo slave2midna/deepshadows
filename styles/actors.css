@@ -146,10 +146,12 @@
   background: var(--color-bg);
 }
 
+/* Stepper controls */
 .ds-stat-stepper {
-  display: grid;
-  grid-template-columns: 14px minmax(0, 1fr) 14px;
-  align-items: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
   width: 100%;
   min-height: 34px;
 }
@@ -157,15 +159,17 @@
 .ds-stat-step-btn {
   appearance: none;
   -webkit-appearance: none;
-  border: 1px solid transparent;
-  border-radius: 0;
+  flex: 0 0 18px;
+  width: 18px;
+  min-width: 18px;
+  height: 34px;
+  border: 1px solid var(--color-border-dark-3);
+  border-radius: 2px;
   background: var(--color-bg-option);
   color: inherit;
   box-shadow: none;
   margin: 0;
   padding: 0;
-  min-width: 0;
-  min-height: 34px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -191,11 +195,19 @@
   outline: none;
 }
 
-.ds-stat-stepper .ds-stat-input {
-  min-width: 0;
+.ds-stat-input {
   min-height: 34px;
-  padding: 0;
+  text-align: center;
   font-size: 0.95rem;
+  font-weight: 500;
+  padding: 0;
+}
+
+.ds-stat-stepper .ds-stat-input {
+  flex: 0 0 2.8em;
+  width: 2.8em;
+  min-width: 2.8em;
+  max-width: 2.8em;
 }
 
 .ds-stat-divider-spacer-cell {
@@ -224,19 +236,8 @@
   text-align: center;
 }
 
+.ds-stat-input-current,
 .ds-stat-current-value-cell .ds-stat-input-current {
-  font-weight: 700;
-}
-
-.ds-stat-input {
-  min-height: 34px;
-  text-align: center;
-  font-size: 0.95rem;
-  font-weight: 500;
-  padding: 0;
-}
-
-.ds-stat-input-current {
   font-weight: 700;
 }
 
@@ -299,15 +300,25 @@
   }
 
   .ds-stat-input {
-    font-size: 0.95rem;
-  }
-
-  .ds-stat-stepper {
-    grid-template-columns: 14px minmax(0, 1fr) 14px;
+    font-size: 0.9rem;
   }
 
   .ds-stat-step-btn {
-    font-size: 0.7rem;
+    flex-basis: 16px;
+    width: 16px;
+    min-width: 16px;
+    height: 30px;
+    font-size: 0.65rem;
+  }
+
+  .ds-stat-stepper .ds-stat-input {
+    flex-basis: 2.4em;
+    width: 2.4em;
+    min-width: 2.4em;
+    max-width: 2.4em;
+    min-height: 30px;
+    height: 30px;
+    font-size: 0.9rem;
   }
 
   .ds-stat-divider-spacer-cell,
