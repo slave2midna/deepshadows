@@ -146,6 +146,30 @@
   background: var(--color-bg);
 }
 
+.ds-stat-slash-cell {
+  width: 22px;
+  min-width: 22px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 1.8rem;
+  line-height: 1;
+  font-weight: 700;
+  background: var(--color-bg-option);
+}
+
+.ds-stat-current-label-cell,
+.ds-stat-current-value-cell {
+  min-width: 72px;
+}
+
+.ds-stat-current-label-cell {
+  text-align: center;
+}
+
+.ds-stat-current-value-cell .ds-stat-input-current {
+  font-weight: 700;
+}
+
 .ds-stat-input {
   min-height: 42px;
   text-align: center;
@@ -218,5 +242,16 @@
 
   .ds-stat-input {
     font-size: 0.95rem;
+  }
+
+  .ds-stat-slash-cell {
+    width: 18px;
+    min-width: 18px;
+    font-size: 1.4rem;
+  }
+
+  .ds-stat-current-label-cell,
+  .ds-stat-current-value-cell {
+    min-width: 60px;
   }
 }
