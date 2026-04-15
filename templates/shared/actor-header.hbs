@@ -4,9 +4,11 @@
       <td class="ds-header-image-cell" rowspan="3">
         <div class="ds-header-image-box">
           <img
-            class="ds-header-image"
+            class="ds-header-image {{#if editableImage}}is-editable{{/if}}"
             src="{{actor.img}}"
             alt="{{actor.name}}"
+            data-action="editPortrait"
+            title="{{#if editableImage}}Change portrait{{else}}{{actor.name}}{{/if}}"
           />
         </div>
       </td>
