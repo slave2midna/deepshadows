@@ -1,0 +1,166 @@
+.deepshadow.sheet.actor .window-content {
+  padding: 0.75rem;
+}
+
+.ds-actor-sheet {
+  width: 100%;
+}
+
+.ds-actor-header {
+  width: 100%;
+}
+
+.ds-actor-header-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  background: var(--color-bg-option);
+  border: 1px solid var(--color-border-dark-3);
+}
+
+.ds-actor-header-table td {
+  border: 1px solid var(--color-border-dark-3);
+  padding: 0;
+  vertical-align: middle;
+}
+
+.ds-header-image-cell {
+  width: 150px;
+  min-width: 150px;
+  background: var(--color-bg);
+}
+
+.ds-header-image-box {
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--color-bg);
+}
+
+.ds-header-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Top row */
+.ds-header-name-cell {
+  background: var(--color-bg-option);
+}
+
+.ds-header-name-input,
+.ds-header-level-input,
+.ds-stat-input {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  margin: 0;
+}
+
+.ds-header-name-input {
+  min-height: 40px;
+  padding: 0.5rem 0.75rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.ds-header-level-label-cell,
+.ds-header-level-value-cell {
+  width: 42px;
+  min-width: 42px;
+  text-align: center;
+  background: var(--color-bg-option);
+}
+
+.ds-header-level-label-cell {
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.ds-header-level-input {
+  min-height: 40px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 0;
+}
+
+/* Stat rows */
+.ds-stat-label-cell {
+  min-height: 34px;
+  padding: 0.35rem 0.25rem;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.95rem;
+  white-space: nowrap;
+  background: var(--color-bg-option);
+}
+
+.ds-stat-value-cell {
+  background: var(--color-bg);
+}
+
+.ds-stat-input {
+  min-height: 42px;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.25rem;
+}
+
+.ds-stat-input-current {
+  font-weight: 700;
+}
+
+/* Remove Foundry default focus glow from the table fields
+   so the grid stays crisp. */
+.ds-header-name-input:focus,
+.ds-header-level-input:focus,
+.ds-stat-input:focus {
+  outline: 1px solid var(--color-border-highlight);
+  box-shadow: none;
+}
+
+/* Keep number inputs visually tidy */
+.ds-header-level-input::-webkit-outer-spin-button,
+.ds-header-level-input::-webkit-inner-spin-button,
+.ds-stat-input::-webkit-outer-spin-button,
+.ds-stat-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.ds-header-level-input[type="number"],
+.ds-stat-input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Small safety adjustment if sheet width gets tighter later */
+@media (max-width: 720px) {
+  .ds-header-image-cell,
+  .ds-header-image-box {
+    width: 120px;
+    min-width: 120px;
+    height: 120px;
+  }
+
+  .ds-header-name-input {
+    font-size: 1rem;
+  }
+
+  .ds-stat-label-cell {
+    font-size: 0.85rem;
+  }
+
+  .ds-stat-input {
+    font-size: 0.95rem;
+  }
+}
