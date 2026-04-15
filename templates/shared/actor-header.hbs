@@ -4,16 +4,16 @@
       <td class="ds-header-image-cell" rowspan="3">
         <div class="ds-header-image-box">
           <img
-            class="ds-header-image {{#if editableImage}}is-editable{{/if}}"
+            class="ds-header-image"
             src="{{actor.img}}"
             alt="{{actor.name}}"
             data-action="editPortrait"
-            title="{{#if editableImage}}Change portrait{{else}}{{actor.name}}{{/if}}"
+            title="{{actor.name}}"
           />
         </div>
       </td>
 
-      <td class="ds-header-name-cell" colspan="{{nameColspan}}">
+      <td class="ds-header-name-cell" colspan="{{#if extrafield2}}4{{else}}6{{/if}}">
         <input
           class="ds-header-name-input"
           type="text"
@@ -24,31 +24,31 @@
       </td>
 
       <td class="ds-header-level-label-cell">
-        {{levelLabel}}
+        {{extrafield1}}
       </td>
 
       <td class="ds-header-level-value-cell">
         <input
           class="ds-header-level-input"
           type="number"
-          name="{{levelName}}"
-          value="{{levelValue}}"
+          name="{{extrafield1Name}}"
+          value="{{extrafield1Value}}"
           min="0"
           step="1"
         />
       </td>
 
-      {{#if extraField}}
+      {{#if extrafield2}}
         <td class="ds-header-level-label-cell">
-          {{extraField.label}}
+          {{extrafield2}}
         </td>
 
         <td class="ds-header-level-value-cell">
           <input
             class="ds-header-level-input"
             type="number"
-            name="{{extraField.name}}"
-            value="{{extraField.value}}"
+            name="{{extrafield2Name}}"
+            value="{{extrafield2Value}}"
             min="0"
             step="1"
           />
