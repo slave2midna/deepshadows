@@ -49,7 +49,7 @@
   flex-direction: column;
 }
 
-/* Top row is now independent from stat columns */
+/* Top row is independent from stat columns */
 .ds-header-top-row {
   display: flex;
   min-width: 0;
@@ -144,6 +144,38 @@
 
 .ds-stat-value-cell {
   background: var(--color-bg);
+}
+
+.ds-stat-stepper {
+  display: grid;
+  grid-template-columns: 16px minmax(0, 1fr) 16px;
+  align-items: stretch;
+  width: 100%;
+  min-height: 42px;
+}
+
+.ds-stat-step-btn {
+  border: 0;
+  border-radius: 0;
+  background: var(--color-bg-option);
+  color: inherit;
+  box-shadow: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.ds-stat-step-btn:hover,
+.ds-stat-step-btn:focus {
+  outline: 1px solid var(--color-border-highlight);
+  box-shadow: none;
+}
+
+.ds-stat-stepper .ds-stat-input {
+  min-width: 0;
 }
 
 .ds-stat-divider-spacer-cell {
@@ -248,6 +280,14 @@
 
   .ds-stat-input {
     font-size: 0.95rem;
+  }
+
+  .ds-stat-stepper {
+    grid-template-columns: 14px minmax(0, 1fr) 14px;
+  }
+
+  .ds-stat-step-btn {
+    font-size: 0.7rem;
   }
 
   .ds-stat-divider-spacer-cell,
