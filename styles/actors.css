@@ -261,6 +261,7 @@
 
 .ds-header-sub-value {
   font-weight: 500;
+  color: var(--color-text-dark-primary);
 }
 
 /* Remove Foundry default focus glow from the table fields
