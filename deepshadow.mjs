@@ -13,7 +13,7 @@ import { MonsterSheet } from "./module/monster-sheet.mjs";
  */
 async function preloadDeepShadowTemplates() {
   return foundry.applications.handlebars.loadTemplates({
-    actorHeader: "systems/deepshadow/templates/shared/actor-header.hbs"
+    actorHeader: "templates/shared/actor-header.hbs"
   });
 }
 
