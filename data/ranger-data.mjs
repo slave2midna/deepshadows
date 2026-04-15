@@ -27,11 +27,6 @@ export class RangerData extends foundry.abstract.TypeDataModel {
           integer: true,
           min: 0,
           initial: 120
-        }),
-        partySize: new fields.StringField({
-          required: true,
-          blank: false,
-          initial: "solo"
         })
       }),
 
