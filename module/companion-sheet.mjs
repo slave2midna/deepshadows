@@ -8,7 +8,8 @@ export class CompanionSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       width: 780
     },
     form: {
-      closeOnSubmit: false
+      closeOnSubmit: false,
+      submitOnChange: true
     }
   }, { inplace: false });
 
