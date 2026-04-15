@@ -8,7 +8,8 @@ export class CompanionSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       width: 780
     },
     form: {
-      closeOnSubmit: false
+      closeOnSubmit: false,
+      submitOnChange: true
     }
   }, { inplace: false });
 
@@ -24,12 +25,17 @@ export class CompanionSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   }
 
   async _prepareContext(options) {
-    const context = await super._prepareContext(options);
-    context.actor = this.actor;
-    context.levelLabel = "RP";
-    context.editableImage = this.isEditable;
-    return context;
-  }
+  const context = await super._prepareContext(options);
+  context.actor = this.actor;
+
+  context.extrafield1Name = "system.details.level";
+  context.extrafield1Value = this.actor.system.details.level;
+
+  context.extrafield2Name = "system.details.progressionPoints";
+  context.extrafield2Value = this.actor.system.details.progressionPoints ?? 0;
+
+  return context;
+}
 
   async _onClickAction(event, target) {
     if (target.dataset.action === "editPortrait") {

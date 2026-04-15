@@ -1,126 +1,150 @@
 <section class="ds-actor-header">
-  <table class="ds-actor-header-table">
-    <tr>
-      <td class="ds-header-image-cell" rowspan="3">
-        <div class="ds-header-image-box">
-          <img
-            class="ds-header-image {{#if editableImage}}is-editable{{/if}}"
-            src="{{actor.img}}"
-            alt="{{actor.name}}"
-            data-action="editPortrait"
-            title="{{#if editableImage}}Change portrait{{else}}{{actor.name}}{{/if}}"
+  <div class="ds-actor-header-shell">
+    <div class="ds-header-image-cell">
+      <div class="ds-header-image-box">
+        <img
+          class="ds-header-image"
+          src="{{actor.img}}"
+          alt="{{actor.name}}"
+          data-action="editPortrait"
+          title="Change portrait"
+        />
+      </div>
+    </div>
+
+    <div class="ds-header-main">
+      <div class="ds-header-top-row">
+        <div class="ds-header-name-cell">
+          <input
+            class="ds-header-name-input"
+            type="text"
+            name="name"
+            value="{{actor.name}}"
+            placeholder="Actor Name"
           />
         </div>
-      </td>
 
-      <td class="ds-header-name-cell" colspan="6">
-        <input
-          class="ds-header-name-input"
-          type="text"
-          name="name"
-          value="{{actor.name}}"
-          placeholder="Actor Name"
-        />
-      </td>
+        <div class="ds-header-level-label-cell">
+          {{extrafield1}}
+        </div>
 
-      <td class="ds-header-level-label-cell">
-        {{levelLabel}}
-      </td>
+        <div class="ds-header-level-value-cell">
+          <input
+            class="ds-header-level-input"
+            type="number"
+            name="{{extrafield1Name}}"
+            value="{{extrafield1Value}}"
+            min="0"
+            step="1"
+          />
+        </div>
 
-      <td class="ds-header-level-value-cell">
-        <input
-          class="ds-header-level-input"
-          type="number"
-          name="system.details.level"
-          value="{{actor.system.details.level}}"
-          min="0"
-          step="1"
-        />
-      </td>
-    </tr>
+        {{#if extrafield2}}
+          <div class="ds-header-level-label-cell">
+            {{extrafield2}}
+          </div>
 
-    <tr>
-      <td class="ds-stat-label-cell">Move</td>
-      <td class="ds-stat-label-cell">Fight</td>
-      <td class="ds-stat-label-cell">Shoot</td>
-      <td class="ds-stat-label-cell">Armour</td>
-      <td class="ds-stat-label-cell">Will</td>
-      <td class="ds-stat-label-cell">Health</td>
-      <td class="ds-stat-label-cell" colspan="2">Current</td>
-    </tr>
+          <div class="ds-header-level-value-cell">
+            <input
+              class="ds-header-level-input"
+              type="number"
+              name="{{extrafield2Name}}"
+              value="{{extrafield2Value}}"
+              min="0"
+              step="1"
+            />
+          </div>
+        {{/if}}
+      </div>
 
-    <tr>
-      <td class="ds-stat-value-cell">
-        <input
-          class="ds-stat-input"
-          type="number"
-          name="system.stats.move"
-          value="{{actor.system.stats.move}}"
-          step="1"
-        />
-      </td>
+      <table class="ds-header-stats-table">
+        <tr>
+          <td class="ds-stat-label-cell">Move</td>
+          <td class="ds-stat-label-cell">Fight</td>
+          <td class="ds-stat-label-cell">Shoot</td>
+          <td class="ds-stat-label-cell">Armour</td>
+          <td class="ds-stat-label-cell">Will</td>
+          <td class="ds-stat-label-cell">Health</td>
+          <td class="ds-stat-divider-spacer-cell"></td>
+          <td class="ds-stat-label-cell ds-stat-current-label-cell">Current</td>
+        </tr>
 
-      <td class="ds-stat-value-cell">
-        <input
-          class="ds-stat-input"
-          type="number"
-          name="system.stats.fight"
-          value="{{actor.system.stats.fight}}"
-          step="1"
-        />
-      </td>
+        <tr>
+          <td class="ds-stat-value-cell">
+            <input
+              class="ds-stat-input"
+              type="number"
+              name="system.stats.move"
+              value="{{actor.system.stats.move}}"
+              step="1"
+            />
+          </td>
 
-      <td class="ds-stat-value-cell">
-        <input
-          class="ds-stat-input"
-          type="number"
-          name="system.stats.shoot"
-          value="{{actor.system.stats.shoot}}"
-          step="1"
-        />
-      </td>
+          <td class="ds-stat-value-cell">
+            <input
+              class="ds-stat-input"
+              type="number"
+              name="system.stats.fight"
+              value="{{actor.system.stats.fight}}"
+              step="1"
+            />
+          </td>
 
-      <td class="ds-stat-value-cell">
-        <input
-          class="ds-stat-input"
-          type="number"
-          name="system.stats.armour"
-          value="{{actor.system.stats.armour}}"
-          step="1"
-        />
-      </td>
+          <td class="ds-stat-value-cell">
+            <input
+              class="ds-stat-input"
+              type="number"
+              name="system.stats.shoot"
+              value="{{actor.system.stats.shoot}}"
+              step="1"
+            />
+          </td>
 
-      <td class="ds-stat-value-cell">
-        <input
-          class="ds-stat-input"
-          type="number"
-          name="system.stats.will"
-          value="{{actor.system.stats.will}}"
-          step="1"
-        />
-      </td>
+          <td class="ds-stat-value-cell">
+            <input
+              class="ds-stat-input"
+              type="number"
+              name="system.stats.armour"
+              value="{{actor.system.stats.armour}}"
+              step="1"
+            />
+          </td>
 
-      <td class="ds-stat-value-cell">
-        <input
-          class="ds-stat-input"
-          type="number"
-          name="system.stats.health.max"
-          value="{{actor.system.stats.health.max}}"
-          min="0"
-          step="1"
-        />
-      </td>
+          <td class="ds-stat-value-cell">
+            <input
+              class="ds-stat-input"
+              type="number"
+              name="system.stats.will"
+              value="{{actor.system.stats.will}}"
+              step="1"
+            />
+          </td>
 
-      <td class="ds-stat-value-cell" colspan="2">
-        <input
-          class="ds-stat-input ds-stat-input-current"
-          type="number"
-          name="system.stats.health.current"
-          value="{{actor.system.stats.health.current}}"
-          min="0"
-          step="1"
-        />
-      </td>
-    </tr>
-  </table>
+          <td class="ds-stat-value-cell">
+            <input
+              class="ds-stat-input"
+              type="number"
+              name="system.stats.health.max"
+              value="{{actor.system.stats.health.max}}"
+              min="0"
+              step="1"
+            />
+          </td>
+
+          <td class="ds-stat-divider-cell">|</td>
+
+          <td class="ds-stat-value-cell ds-stat-current-value-cell">
+            <input
+              class="ds-stat-input ds-stat-input-current"
+              type="number"
+              name="system.stats.health.current"
+              value="{{actor.system.stats.health.current}}"
+              min="0"
+              step="1"
+            />
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
 </section>

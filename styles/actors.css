@@ -10,24 +10,19 @@
   width: 100%;
 }
 
-.ds-actor-header-table {
+.ds-actor-header-shell {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 0;
   width: 100%;
-  border-collapse: collapse;
-  table-layout: fixed;
-  background: var(--color-bg-option);
-  border: 1px solid var(--color-border-dark-3);
-}
-
-.ds-actor-header-table td {
-  border: 1px solid var(--color-border-dark-3);
-  padding: 0;
-  vertical-align: middle;
 }
 
 .ds-header-image-cell {
   width: 150px;
   min-width: 150px;
   background: var(--color-bg);
+  border: 1px solid var(--color-border-dark-3);
+  border-right: 0;
 }
 
 .ds-header-image-box {
@@ -45,11 +40,48 @@
   height: 100%;
   object-fit: cover;
   display: block;
+  cursor: pointer;
 }
 
-/* Top row */
-.ds-header-name-cell {
+.ds-header-main {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Top row is now independent from stat columns */
+.ds-header-top-row {
+  display: flex;
+  min-width: 0;
   background: var(--color-bg-option);
+  border: 1px solid var(--color-border-dark-3);
+  border-bottom: 0;
+}
+
+.ds-header-top-row > * {
+  border-right: 1px solid var(--color-border-dark-3);
+}
+
+.ds-header-top-row > *:last-child {
+  border-right: 0;
+}
+
+.ds-header-name-cell {
+  flex: 1 1 auto;
+  min-width: 0;
+  background: var(--color-bg-option);
+}
+
+.ds-header-level-label-cell,
+.ds-header-level-value-cell {
+  flex: 0 0 36px;
+  width: 36px;
+  min-width: 36px;
+  text-align: center;
+  background: var(--color-bg-option);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .ds-header-name-input,
@@ -72,28 +104,34 @@
   text-transform: uppercase;
 }
 
-.ds-header-level-label-cell,
-.ds-header-level-value-cell {
-  width: 42px;
-  min-width: 42px;
-  text-align: center;
-  background: var(--color-bg-option);
-}
-
 .ds-header-level-label-cell {
   font-weight: 700;
-  font-size: 0.95rem;
+  font-size: 0.85rem;
 }
 
 .ds-header-level-input {
   min-height: 40px;
   text-align: center;
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 0.9rem;
   padding: 0;
 }
 
-/* Stat rows */
+/* Stat rows now live in their own table */
+.ds-header-stats-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  background: var(--color-bg-option);
+  border: 1px solid var(--color-border-dark-3);
+}
+
+.ds-header-stats-table td {
+  border: 1px solid var(--color-border-dark-3);
+  padding: 0;
+  vertical-align: middle;
+}
+
 .ds-stat-label-cell {
   min-height: 34px;
   padding: 0.35rem 0.25rem;
@@ -106,6 +144,36 @@
 
 .ds-stat-value-cell {
   background: var(--color-bg);
+}
+
+.ds-stat-divider-spacer-cell {
+  width: 16px;
+  min-width: 16px;
+  background: var(--color-bg-option);
+}
+
+.ds-stat-divider-cell {
+  width: 16px;
+  min-width: 16px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 1.4rem;
+  line-height: 1;
+  font-weight: 700;
+  background: var(--color-bg);
+}
+
+.ds-stat-current-label-cell,
+.ds-stat-current-value-cell {
+  min-width: 72px;
+}
+
+.ds-stat-current-label-cell {
+  text-align: center;
+}
+
+.ds-stat-current-value-cell .ds-stat-input-current {
+  font-weight: 700;
 }
 
 .ds-stat-input {
@@ -143,12 +211,11 @@
   -moz-appearance: textfield;
 }
 
-.ds-header-image.is-editable {
-  cursor: pointer;
-}
-
-/* Small safety adjustment if sheet width gets tighter later */
 @media (max-width: 720px) {
+  .ds-actor-header-shell {
+    grid-template-columns: 120px minmax(0, 1fr);
+  }
+
   .ds-header-image-cell,
   .ds-header-image-box {
     width: 120px;
@@ -160,11 +227,41 @@
     font-size: 1rem;
   }
 
+  .ds-header-level-label-cell,
+  .ds-header-level-value-cell {
+    flex-basis: 32px;
+    width: 32px;
+    min-width: 32px;
+  }
+
+  .ds-header-level-label-cell {
+    font-size: 0.8rem;
+  }
+
+  .ds-header-level-input {
+    font-size: 0.85rem;
+  }
+
   .ds-stat-label-cell {
     font-size: 0.85rem;
   }
 
   .ds-stat-input {
     font-size: 0.95rem;
+  }
+
+  .ds-stat-divider-spacer-cell,
+  .ds-stat-divider-cell {
+    width: 14px;
+    min-width: 14px;
+  }
+
+  .ds-stat-divider-cell {
+    font-size: 1.1rem;
+  }
+
+  .ds-stat-current-label-cell,
+  .ds-stat-current-value-cell {
+    min-width: 60px;
   }
 }
