@@ -26,19 +26,12 @@ export class CompanionSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   async _prepareContext(options) {
   const context = await super._prepareContext(options);
   context.actor = this.actor;
-  context.editableImage = this.isEditable;
 
-  context.levelLabel = "RP";
-  context.levelName = "system.details.level";
-  context.levelValue = this.actor.system.details.level;
+  context.extrafield1Name = "system.details.level";
+  context.extrafield1Value = this.actor.system.details.level;
 
-  context.extraField = {
-    label: "PP",
-    name: "system.details.progressionPoints",
-    value: this.actor.system.details.progressionPoints ?? 0
-  };
-
-  context.nameColspan = 4;
+  context.extrafield2Name = "system.details.progressionPoints";
+  context.extrafield2Value = this.actor.system.details.progressionPoints ?? 0;
 
   return context;
 }
