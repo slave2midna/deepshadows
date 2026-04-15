@@ -143,6 +143,10 @@
   -moz-appearance: textfield;
 }
 
+.ds-header-image.is-editable {
+  cursor: pointer;
+}
+
 /* Small safety adjustment if sheet width gets tighter later */
 @media (max-width: 720px) {
   .ds-header-image-cell,
