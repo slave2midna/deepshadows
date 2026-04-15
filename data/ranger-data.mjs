@@ -27,7 +27,7 @@ function skillField(label, initial = 0) {
   });
 }
 
-export default class DeepShadowRangerData extends foundry.abstract.TypeDataModel {
+export class RangerData extends foundry.abstract.TypeDataModel {
   static defineSchema() {
     return {
       notes: new StringField({ required: true, blank: true, initial: "" }),
