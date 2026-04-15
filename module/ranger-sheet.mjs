@@ -20,6 +20,6 @@ export class RangerSheet extends foundry.applications.sheets.ActorSheetV2 {
   }
 
   async _renderHTML(context, options) {
-    return renderTemplate("systems/deepshadow/templates/ranger-sheet.hbs", context);
+    return renderTemplate("templates/ranger-sheet.hbs", context);
   }
 }
