@@ -25,14 +25,14 @@ export class MonsterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   }
 
   async _prepareContext(options) {
-  const context = await super._prepareContext(options);
-  context.actor = this.actor;
+    const context = await super._prepareContext(options);
+    context.actor = this.actor;
 
-  context.extrafield1Name = "system.details.level";
-  context.extrafield1Value = this.actor.system.details.level;
+    context.extrafield1Name = "system.details.level";
+    context.extrafield1Value = this.actor.system.details.level;
 
-  return context;
-}
+    return context;
+  }
 
   async _onClickAction(event, target) {
     if (target.dataset.action === "editPortrait") {
@@ -47,6 +47,21 @@ export class MonsterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
         }
       }).browse();
 
+      return;
+    }
+
+    if (target.dataset.action === "incrementField" || target.dataset.action === "decrementField") {
+      event.preventDefault();
+      if (!this.isEditable) return;
+
+      const wrapper = target.closest(".ds-stat-stepper");
+      const input = wrapper?.querySelector("input[type='number']");
+      if (!input) return;
+
+      if (target.dataset.action === "incrementField") input.stepUp();
+      else input.stepDown();
+
+      await this.submit();
       return;
     }
 
