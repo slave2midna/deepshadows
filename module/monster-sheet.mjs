@@ -24,12 +24,19 @@ export class MonsterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   }
 
   async _prepareContext(options) {
-    const context = await super._prepareContext(options);
-    context.actor = this.actor;
-    context.levelLabel = "XP";
-    context.editableImage = this.isEditable;
-    return context;
-  }
+  const context = await super._prepareContext(options);
+  context.actor = this.actor;
+  context.editableImage = this.isEditable;
+
+  context.levelLabel = "XP";
+  context.levelName = "system.details.level";
+  context.levelValue = this.actor.system.details.level;
+
+  context.extraField = null;
+  context.nameColspan = 6;
+
+  return context;
+}
 
   async _onClickAction(event, target) {
     if (target.dataset.action === "editPortrait") {
