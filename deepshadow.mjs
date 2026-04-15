@@ -1,4 +1,4 @@
-import DeepShadowRangerData from "./data/ranger-data.mjs";
+import { RangerData } from "./data/ranger-data.mjs";
 import { CompanionData } from "./data/companion-data.mjs";
 import { MonsterData } from "./data/monster-data.mjs";
 
