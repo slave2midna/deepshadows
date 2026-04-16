@@ -34,6 +34,9 @@ export class CompanionSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     context.extrafield2Name = "system.details.progressionPoints";
     context.extrafield2Value = this.actor.system.details.progressionPoints ?? 0;
 
+    context.subfield1Value = this.actor.system.details.type ?? "";
+    context.subfield2CheckboxValue = this.actor.system.details.cantUseItems ?? false;
+
     return context;
   }
 
