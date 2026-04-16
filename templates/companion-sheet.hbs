@@ -1,3 +1,13 @@
 <form class="ds-actor-sheet ds-companion-sheet" autocomplete="off">
-  {{> actorHeader actor=actor extrafield1="RP" extrafield2="PP"}}
+  {{> actorHeader
+    actor=actor
+    extrafield1="RP"
+    extrafield2="PP"
+    subfield1Label="Type:"
+    subfield1Name="system.details.type"
+    subfield1Value=subfield1Value
+    subfield2Label="Can't use items"
+    subfield2CheckboxName="system.details.cantUseItems"
+    subfield2CheckboxValue=subfield2CheckboxValue
+  }}
 </form>

@@ -1,3 +1,11 @@
 <form class="ds-actor-sheet ds-ranger-sheet" autocomplete="off">
-  {{> actorHeader actor=actor extrafield1="LV" extrafield2="XP"}}
+  {{> actorHeader
+    actor=actor
+    extrafield1="LV"
+    extrafield2="XP"
+    subfield1Label="Battle Points:"
+    subfield1Value=subfield1Value
+    subfield2Label="Recruitment Points:"
+    subfield2Value=subfield2Value
+  }}
 </form>

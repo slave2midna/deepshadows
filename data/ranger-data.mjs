@@ -15,6 +15,18 @@ export class RangerData extends foundry.abstract.TypeDataModel {
           integer: true,
           min: 0,
           initial: 0
+        }),
+        battlePoints: new fields.NumberField({
+          required: true,
+          integer: true,
+          min: 0,
+          initial: 30
+        }),
+        recruitmentPoints: new fields.NumberField({
+          required: true,
+          integer: true,
+          min: 0,
+          initial: 120
         })
       }),
 

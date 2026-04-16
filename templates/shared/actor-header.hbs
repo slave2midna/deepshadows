@@ -173,6 +173,42 @@
           </td>
         </tr>
       </table>
+
+      <div class="ds-header-sub-row">
+        {{#if subfield1Label}}
+          <div class="ds-header-sub-field">
+            <span class="ds-header-sub-label">{{subfield1Label}}</span>
+
+            {{#if subfield1Name}}
+              <input
+                class="ds-header-sub-input"
+                type="text"
+                name="{{subfield1Name}}"
+                value="{{subfield1Value}}"
+              />
+            {{else}}
+              <span class="ds-header-sub-value">{{subfield1Value}}</span>
+            {{/if}}
+          </div>
+        {{/if}}
+
+        {{#if subfield2CheckboxName}}
+          <div class="ds-header-sub-field ds-header-sub-checkbox-field">
+            <input
+              class="ds-header-sub-checkbox"
+              type="checkbox"
+              name="{{subfield2CheckboxName}}"
+              {{#if subfield2CheckboxValue}}checked{{/if}}
+            />
+            <label class="ds-header-sub-label">{{subfield2Label}}</label>
+          </div>
+        {{else if subfield2Label}}
+          <div class="ds-header-sub-field">
+            <span class="ds-header-sub-label">{{subfield2Label}}</span>
+            <span class="ds-header-sub-value">{{subfield2Value}}</span>
+          </div>
+        {{/if}}
+      </div>
     </div>
   </div>
 </section>

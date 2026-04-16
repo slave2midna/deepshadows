@@ -236,6 +236,51 @@
   font-weight: 700;
 }
 
+.ds-header-sub-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  align-items: center;
+  padding: 0.0rem 0.6rem;
+  background: var(--color-bg-option);
+  border: 1px solid var(--color-border-dark-3);
+  border-top: 0;
+}
+
+.ds-header-sub-field {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+.ds-header-sub-label {
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.ds-header-sub-value {
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.ds-header-sub-input {
+  width: 7.5rem;
+  min-width: 7.5rem;
+  max-width: 7.5rem;
+  height: 24px;
+  padding: 0 0.35rem;
+}
+
+.ds-header-sub-checkbox-field {
+  gap: 0.4rem;
+}
+
+.ds-header-sub-checkbox {
+  margin: 0;
+}
+
 /* Remove Foundry default focus glow from the table fields
    so the grid stays crisp. */
 .ds-header-name-input:focus,
