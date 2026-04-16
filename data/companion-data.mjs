@@ -15,6 +15,15 @@ export class CompanionData extends foundry.abstract.TypeDataModel {
           integer: true,
           min: 0,
           initial: 0
+        }),
+        type: new fields.StringField({
+          required: true,
+          blank: true,
+          initial: ""
+        }),
+        cantUseItems: new fields.BooleanField({
+          required: true,
+          initial: false
         })
       }),
 
