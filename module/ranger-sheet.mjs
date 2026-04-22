@@ -2,10 +2,6 @@ const { ActorSheetV2 } = foundry.applications.sheets;
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 
 export class RangerSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
-  tabGroups = {
-    primary: "overview"
-  };
-
   static DEFAULT_OPTIONS = foundry.utils.mergeObject(super.DEFAULT_OPTIONS, {
     classes: ["deepshadow", "sheet", "actor", "ranger-sheet"],
     position: {
@@ -16,15 +12,6 @@ export class RangerSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       submitOnChange: true
     }
   }, { inplace: false });
-
-  static TABS = {
-    primary: {
-      group: "primary",
-      navSelector: ".ds-content-tabs",
-      contentSelector: ".ds-content-body",
-      initial: "overview"
-    }
-  };
 
   static PARTS = {
     sheet: {
@@ -50,12 +37,11 @@ export class RangerSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     context.subfield1Value = this.actor.system.details.battlePoints ?? 30;
     context.subfield2Value = this.actor.system.details.recruitmentPoints ?? 120;
 
-    const activePrimaryTab = this.tabGroups.primary ?? "overview";
     context.tabs = [
       {
         id: "overview",
         label: "Overview",
-        active: activePrimaryTab === "overview"
+        active: true
       }
     ];
 
