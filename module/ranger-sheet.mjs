@@ -42,6 +42,16 @@ export class RangerSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
         id: "overview",
         label: "Overview",
         active: true
+      },
+      {
+        id: "inventory",
+        label: "Inventory",
+        active: false
+      },
+      {
+        id: "progression",
+        label: "Progression",
+        active: false
       }
     ];
 
