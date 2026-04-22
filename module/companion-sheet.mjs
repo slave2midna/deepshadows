@@ -2,6 +2,10 @@ const { ActorSheetV2 } = foundry.applications.sheets;
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 
 export class CompanionSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
+  tabGroups = {
+    primary: "overview"
+  };
+
   static DEFAULT_OPTIONS = foundry.utils.mergeObject(super.DEFAULT_OPTIONS, {
     classes: ["deepshadow", "sheet", "actor", "companion-sheet"],
     position: {
@@ -12,6 +16,15 @@ export class CompanionSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       submitOnChange: true
     }
   }, { inplace: false });
+
+  static TABS = {
+    primary: {
+      group: "primary",
+      navSelector: ".ds-content-tabs",
+      contentSelector: ".ds-content-body",
+      initial: "overview"
+    }
+  };
 
   static PARTS = {
     sheet: {
@@ -36,6 +49,15 @@ export class CompanionSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 
     context.subfield1Value = this.actor.system.details.type ?? "";
     context.subfield2CheckboxValue = this.actor.system.details.cantUseItems ?? false;
+
+    const activePrimaryTab = this.tabGroups.primary ?? "overview";
+    context.tabs = [
+      {
+        id: "overview",
+        label: "Overview",
+        active: activePrimaryTab === "overview"
+      }
+    ];
 
     return context;
   }
