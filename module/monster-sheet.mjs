@@ -31,6 +31,14 @@ export class MonsterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     context.extrafield1Name = "system.details.level";
     context.extrafield1Value = this.actor.system.details.level;
 
+    context.tabs = [
+      {
+        id: "overview",
+        label: "Overview",
+        active: true
+      }
+    ];
+
     return context;
   }
 

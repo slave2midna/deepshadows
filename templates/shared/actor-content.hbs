@@ -1,0 +1,17 @@
+<section class="ds-actor-content">
+  <nav class="ds-content-tabs tabs" data-group="{{tabGroup}}" aria-label="Actor Content Tabs">
+    {{#each tabs}}
+      <a
+        class="item ds-content-tab {{#if active}}active{{/if}}"
+        data-tab="{{id}}"
+        data-group="{{../tabGroup}}"
+      >
+        {{label}}
+      </a>
+    {{/each}}
+  </nav>
+
+  <section class="ds-content-body">
+    {{> @partial-block}}
+  </section>
+</section>

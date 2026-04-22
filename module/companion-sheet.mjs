@@ -37,6 +37,14 @@ export class CompanionSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     context.subfield1Value = this.actor.system.details.type ?? "";
     context.subfield2CheckboxValue = this.actor.system.details.cantUseItems ?? false;
 
+    context.tabs = [
+      {
+        id: "overview",
+        label: "Overview",
+        active: true
+      }
+    ];
+
     return context;
   }
 
