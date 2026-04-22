@@ -281,6 +281,63 @@
   margin: 0;
 }
 
+/* Shared actor content tabs */
+.ds-actor-content {
+  margin-top: 0.75rem;
+  border: 1px solid var(--color-border-dark-3);
+  background: var(--color-bg-option);
+}
+
+.ds-content-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  border-bottom: 1px solid var(--color-border-dark-3);
+  background: var(--color-bg-option);
+}
+
+.ds-content-tab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  padding: 0.4rem 0.9rem;
+  border-right: 1px solid var(--color-border-dark-3);
+  text-decoration: none;
+  font-weight: 700;
+  color: inherit;
+  cursor: pointer;
+}
+
+.ds-content-tab:last-child {
+  border-right: 0;
+}
+
+.ds-content-tab:hover,
+.ds-content-tab:focus {
+  background: var(--color-bg);
+  box-shadow: none;
+  outline: none;
+}
+
+.ds-content-tab.active {
+  background: var(--color-bg);
+}
+
+.ds-content-body {
+  padding: 0.75rem;
+  background: var(--color-bg);
+  min-height: 220px;
+}
+
+.ds-content-body .tab {
+  display: none;
+}
+
+.ds-content-body .tab.active {
+  display: block;
+}
+
 /* Remove Foundry default focus glow from the table fields
    so the grid stays crisp. */
 .ds-header-name-input:focus,
@@ -374,5 +431,16 @@
   .ds-stat-current-label-cell,
   .ds-stat-current-value-cell {
     min-width: 60px;
+  }
+
+  .ds-content-tab {
+    min-height: 30px;
+    padding: 0.3rem 0.65rem;
+    font-size: 0.9rem;
+  }
+
+  .ds-content-body {
+    padding: 0.6rem;
+    min-height: 180px;
   }
 }
