@@ -1,15 +1,15 @@
 <section class="ds-actor-content">
   <nav class="ds-content-tabs tabs" data-group="{{tabGroup}}" aria-label="Actor Content Tabs">
     {{#each tabs}}
-      <a
+      <button
+        type="button"
         class="item ds-content-tab {{#if active}}active{{/if}}"
         data-action="activateTab"
         data-tab="{{id}}"
         data-group="{{../tabGroup}}"
-        href="#"
       >
         {{label}}
-      </a>
+      </button>
     {{/each}}
   </nav>
 
