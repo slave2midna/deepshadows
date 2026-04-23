@@ -36,6 +36,16 @@ export class MonsterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
         id: "overview",
         label: "Overview",
         active: true
+      },
+      {
+        id: "abilities",
+        label: "Abilities",
+        active: false
+      },
+      {
+        id: "tactics",
+        label: "Tactics",
+        active: false
       }
     ];
 
