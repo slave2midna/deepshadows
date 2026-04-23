@@ -42,6 +42,21 @@ export class CompanionSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
         id: "overview",
         label: "Overview",
         active: true
+      },
+      {
+        id: "abilities",
+        label: "Abilities",
+        active: false
+      },
+      {
+        id: "inventory",
+        label: "Inventory",
+        active: false
+      },
+      {
+        id: "progression",
+        label: "Progression",
+        active: false
       }
     ];
 
