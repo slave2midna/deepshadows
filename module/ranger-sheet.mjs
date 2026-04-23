@@ -44,6 +44,11 @@ export class RangerSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
         active: true
       },
       {
+        id: "abilities",
+        label: "Abilities",
+        active: false
+      },
+      {
         id: "inventory",
         label: "Inventory",
         active: false
@@ -51,6 +56,11 @@ export class RangerSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       {
         id: "progression",
         label: "Progression",
+        active: false
+      },
+      {
+        id: "party",
+        label: "Party",
         active: false
       }
     ];
