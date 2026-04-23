@@ -2,6 +2,10 @@ const { ActorSheetV2 } = foundry.applications.sheets;
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 
 export class RangerSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
+  tabGroups = {
+    primary: "overview"
+  };
+
   static DEFAULT_OPTIONS = foundry.utils.mergeObject(super.DEFAULT_OPTIONS, {
     classes: ["deepshadow", "sheet", "actor", "ranger-sheet"],
     position: {
@@ -37,33 +41,41 @@ export class RangerSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     context.subfield1Value = this.actor.system.details.battlePoints ?? 30;
     context.subfield2Value = this.actor.system.details.recruitmentPoints ?? 120;
 
+    const activePrimaryTab = this.tabGroups.primary ?? "overview";
+
     context.tabs = [
       {
         id: "overview",
         label: "Overview",
-        active: true
+        active: activePrimaryTab === "overview"
       },
       {
         id: "abilities",
         label: "Abilities",
-        active: false
+        active: activePrimaryTab === "abilities"
       },
       {
         id: "inventory",
         label: "Inventory",
-        active: false
+        active: activePrimaryTab === "inventory"
       },
       {
         id: "progression",
         label: "Progression",
-        active: false
+        active: activePrimaryTab === "progression"
       },
       {
         id: "party",
         label: "Party",
-        active: false
+        active: activePrimaryTab === "party"
       }
     ];
+
+    context.isOverviewTab = activePrimaryTab === "overview";
+    context.isAbilitiesTab = activePrimaryTab === "abilities";
+    context.isInventoryTab = activePrimaryTab === "inventory";
+    context.isProgressionTab = activePrimaryTab === "progression";
+    context.isPartyTab = activePrimaryTab === "party";
 
     return context;
   }
@@ -81,6 +93,18 @@ export class RangerSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
         }
       }).browse();
 
+      return;
+    }
+
+    if (target.dataset.action === "activateTab") {
+      event.preventDefault();
+
+      const group = target.dataset.group ?? "primary";
+      const tab = target.dataset.tab;
+      if (!tab) return;
+
+      this.tabGroups[group] = tab;
+      await this.render({ force: true });
       return;
     }
 
