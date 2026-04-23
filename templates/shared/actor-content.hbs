@@ -3,8 +3,10 @@
     {{#each tabs}}
       <a
         class="item ds-content-tab {{#if active}}active{{/if}}"
+        data-action="activateTab"
         data-tab="{{id}}"
         data-group="{{../tabGroup}}"
+        href="#"
       >
         {{label}}
       </a>
