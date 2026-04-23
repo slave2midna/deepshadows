@@ -10,31 +10,31 @@
   }}
 
   {{#> actorContent tabs=tabs tabGroup="primary"}}
-    <section class="tab active" data-group="primary" data-tab="overview">
+    <section class="tab {{#if isOverviewTab}}active{{/if}}" data-group="primary" data-tab="overview">
       <div class="ds-tab-panel">
         Ranger overview content goes here.
       </div>
     </section>
 
-    <section class="tab" data-group="primary" data-tab="abilities">
+    <section class="tab {{#if isAbilitiesTab}}active{{/if}}" data-group="primary" data-tab="abilities">
       <div class="ds-tab-panel">
         Ranger abilities content goes here.
       </div>
     </section>
 
-    <section class="tab" data-group="primary" data-tab="inventory">
+    <section class="tab {{#if isInventoryTab}}active{{/if}}" data-group="primary" data-tab="inventory">
       <div class="ds-tab-panel">
         Ranger inventory content goes here.
       </div>
     </section>
 
-    <section class="tab" data-group="primary" data-tab="progression">
+    <section class="tab {{#if isProgressionTab}}active{{/if}}" data-group="primary" data-tab="progression">
       <div class="ds-tab-panel">
         Ranger progression content goes here.
       </div>
     </section>
 
-    <section class="tab" data-group="primary" data-tab="party">
+    <section class="tab {{#if isPartyTab}}active{{/if}}" data-group="primary" data-tab="party">
       <div class="ds-tab-panel">
         Ranger party content goes here.
       </div>
